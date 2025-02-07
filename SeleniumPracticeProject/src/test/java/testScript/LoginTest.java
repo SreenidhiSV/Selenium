@@ -44,7 +44,6 @@ public class LoginTest extends Base {
 		wait.until(ExpectedConditions.elementToBeClickable(loginButton));
 		boolean isLoginButtonDislayed = loginButton.isDisplayed();
 		loginButton.click();
-		//Assert.assertFalse(isLoginButtonDislayed, "Login button is displayed");// Assert False
 		Assert.assertTrue(isLoginButtonDislayed, "login button is not displayed");
 
 	}

@@ -1,5 +1,6 @@
 package utilities;
 
+import java.sql.Driver;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 
@@ -11,6 +12,10 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WaitUtility {
+	public static int IMPLICITEWAITDURATION = 10;
+	public static int EXPLICITEWAITDURATION = 5;
+	private WebDriver driver;
+
 	public void fluentWaitElements(WebDriver driver, WebElement element, String attribute, String attributeValue,
 			int total) {
 		Wait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(total))
@@ -19,8 +24,27 @@ public class WaitUtility {
 	}
 
 	public void waitUntilTheAlertIsPresent(WebDriver driver) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICITEWAITDURATION));
 		wait.until(ExpectedConditions.alertIsPresent());
+	}
+
+	public void waitUntilTheElementToBeSelected(WebDriver driver, WebElement element) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICITEWAITDURATION));
+		wait.until(ExpectedConditions.elementToBeSelected(element));
+	}
+
+	public void waitUntilTheElementToBeClickable(WebDriver driver, WebElement element) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICITEWAITDURATION));
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+	}
+
+	public void waitUntilTheTextToBePresent(WebDriver driver, WebElement element, String value) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICITEWAITDURATION));
+		wait.until(ExpectedConditions.textToBePresentInElement(element, value));
+	}
+
+	public void implicitWait(WebDriver driver) {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(IMPLICITEWAITDURATION));
 	}
 
 }

@@ -1,14 +1,19 @@
 package automationCore;
 
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
+
+import utilities.ScreenshotUtility;
+import utilities.WaitUtility;
 
 public class Base {
 	public WebDriver driver;
@@ -29,14 +34,19 @@ public class Base {
 
 		driver.get("https://groceryapp.uniqassosiates.com/admin/login");
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));// to check every 5s the element is loading
-																			// from the browser
+		WaitUtility wait=new WaitUtility();
+		wait.implicitWait(driver);
 
 	}
 
 	@AfterMethod
-	public void driverCloseAndQuit() {
-		//driver.quit();
+	public void driverCloseAndQuit(ITestResult iTestResult) throws IOException {
+		if (iTestResult.getStatus() == ITestResult.FAILURE) {
+			ScreenshotUtility screenShot = new ScreenshotUtility();
+			screenShot.getScreenshot(driver, iTestResult.getName());
+		}
+		driver.quit();
+
 	}
 
 }

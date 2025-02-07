@@ -5,9 +5,9 @@
     <classes>
       <class name="testScript.HomeTest">
         <methods>
+          <include name="UserCanViewTheSite"/>
           <include name="initializeBrowser"/>
           <include name="driverCloseAndQuit"/>
-          <include name="UserCanLogOutTheSite"/>
         </methods>
       </class> <!-- testScript.HomeTest -->
     </classes>

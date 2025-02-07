@@ -15,12 +15,16 @@ public class LoginPage {
 
 	}
 
-	@FindBy(xpath = "//input[@name='username']") // find WebElement using @FindBy
+	@FindBy(xpath = "//input[@placeholder='Username']") // find WebElement using @FindBy
 	private WebElement username;
 	@FindBy(xpath = "//input[@name='password']")
 	private WebElement password;
 	@FindBy(xpath = "//button[@type='submit']")
 	private WebElement signinButton;
+	@FindBy(xpath = "//p[text()='Dashboard']")
+	private WebElement dashboard;
+	@FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
+	private WebElement alert;
 
 	public void enterUsernameOnUsernameField(String username1) {
 		username.sendKeys(username1);
@@ -34,7 +38,11 @@ public class LoginPage {
 		signinButton.click();
 	}
 
-	public boolean isSignInButtonDislayed() {
-		return signinButton.isDisplayed();
+	public boolean isDashboardDisplayed() {
+		return dashboard.isDisplayed();
+	}
+
+	public boolean isAlertDisplayed() {
+		return alert.isDisplayed();
 	}
 }

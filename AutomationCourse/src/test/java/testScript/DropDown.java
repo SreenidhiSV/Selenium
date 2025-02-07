@@ -19,7 +19,7 @@ public class DropDown extends Base {
 		driver.navigate().to("https://www.webdriveruniversity.com/Dropdown-Checkboxes-RadioButtons/index.html");
 		WebElement dropdown1 = driver.findElement(By.xpath("//select[@id='dropdowm-menu-1']"));
 		Select select = new Select(dropdown1);
-		select.selectByIndex(1);
+		select.selectByIndex(2);
 		WebElement dropdown2 = driver.findElement(By.xpath("//select[@id='dropdown-menu-2']"));
 		Select select1 = new Select(dropdown2);
 		select1.selectByVisibleText("Maven");
@@ -68,8 +68,8 @@ public class DropDown extends Base {
 	public static void main(String[] args) {
 		DropDown dropdown = new DropDown();
 		dropdown.initializeBrowser();
-		// dropdown.handlingDropDown();
-		dropdown.handlingCheckBox();
+		 dropdown.handlingDropDown();
+		//dropdown.handlingCheckBox();
 		// dropdown.handlingCheckBoxList();
 		// dropdown.handlingRadioButton();
 		// dropdown.driverCloseAndQuit();

@@ -4,13 +4,9 @@
 	<parameter name="browser" value="Chrome"></parameter>
 	<test thread-count="5" name="Test">
 		<classes>
-			<class name="testScript.HomeTest">
+			<class name="testScript.Sub_CategoryTest">
 				<methods>
-					<exclude name="userLoginWithValidUsernameAndValidPassword"></exclude>
-					<exclude name="userLoginWithValidUsernameAndInvalidPassword"></exclude>
-					<exclude name="userLoginWithInvalidUsernameAndValidPassword"></exclude>
-					<exclude name="userLoginWithInvalidUsernameAndInvalidPassword"></exclude>
-					<include name="UserCanLogOutTheSite"></include>
+					<include name="UserCanEntervalidSubCategoryInformation"></include>
 				</methods>
 			</class>
 		</classes>

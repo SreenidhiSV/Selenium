@@ -13,8 +13,10 @@ import org.testng.annotations.Test;
 import automationCore.Base;
 import pages.LoginPage;
 import utilities.ExcelUtilities;
+import utilities.WaitUtility;
 
 public class LoginTest extends Base {
+	// private WebElement signinButton;
 	@Test(description = "Login using valid credentials", priority = 1)
 	public void userLoginWithValidUsernameAndValidPassword() throws IOException {
 		String username1 = ExcelUtilities.getStringData(1, 0, "LoginPage");
@@ -22,9 +24,9 @@ public class LoginTest extends Base {
 		LoginPage login = new LoginPage(driver);
 		login.enterUsernameOnUsernameField(username1);
 		login.enterPasswordOnPasswordField(password1);
-		boolean signInButtonDisplayed = login.isSignInButtonDislayed();
 		login.clickOnSigninButton();
-		Assert.assertTrue(signInButtonDisplayed, "Sign in button is not displayed");// assertion
+		boolean isDashboardDisplayed = login.isDashboardDisplayed();
+		Assert.assertTrue(isDashboardDisplayed, "unable to login with given credentials");
 
 	}
 
@@ -35,33 +37,35 @@ public class LoginTest extends Base {
 		LoginPage login = new LoginPage(driver);
 		login.enterUsernameOnUsernameField(username1);
 		login.enterPasswordOnPasswordField(password1);
-		boolean isSignInButtonDislayed = login.isSignInButtonDislayed();
 		login.clickOnSigninButton();
-		Assert.assertTrue(isSignInButtonDislayed, "Sign in button not displayed");
+		boolean isAlertDisplayed = login.isAlertDisplayed();
+		Assert.assertTrue(isAlertDisplayed, "Successful login with invalid password");
 	}
 
-	@Test(description = "Login Using Invalid username and Valid password", priority = 3)
+	@Test(description = "Login using invalid username and valid password", priority = 3)
 	public void userLoginWithInvalidUsernameAndValidPassword() throws IOException {
 		String username1 = ExcelUtilities.getStringData(3, 0, "LoginPage");
 		String password1 = ExcelUtilities.getStringData(3, 1, "LoginPage");
 		LoginPage login = new LoginPage(driver);
 		login.enterUsernameOnUsernameField(username1);
 		login.enterPasswordOnPasswordField(password1);
-		boolean isSignInButtonDislayed = login.isSignInButtonDislayed();
 		login.clickOnSigninButton();
-		Assert.assertTrue(isSignInButtonDislayed, "Sign in button not displayed");
+		boolean isAlertDisplayed = login.isAlertDisplayed();
+		Assert.assertTrue(isAlertDisplayed, "Successful login with invalid username");
 	}
 
-	@Test(description = "Login Using Invalid username and Invalid password",priority=4)
+	@Test(description = "Login using invalid username and invalid password", priority = 4)
 	public void userLoginWithInvalidUsernameAndInvalidPassword() throws IOException {
 		String username1 = ExcelUtilities.getStringData(4, 0, "LoginPage");
 		String password1 = ExcelUtilities.getStringData(4, 1, "LoginPage");
 		LoginPage login = new LoginPage(driver);
 		login.enterUsernameOnUsernameField(username1);
 		login.enterPasswordOnPasswordField(password1);
-		boolean isSignInButtonDislayed = login.isSignInButtonDislayed();
 		login.clickOnSigninButton();
-		Assert.assertTrue(isSignInButtonDislayed, "Sign in button not displayed");
+		// WaitUtility wait=new WaitUtility();
+		// wait.waitUntilTheElementToBeClickable(driver, signinButton);
+		boolean isAlertDisplayed = login.isAlertDisplayed();
+		Assert.assertTrue(isAlertDisplayed, "Successful login with invalid credentials");
 
 	}
 
