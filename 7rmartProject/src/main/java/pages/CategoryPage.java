@@ -16,15 +16,15 @@ public class CategoryPage {
 
 	}
 
-	//@FindBy(xpath = "( //a[@class='small-box-footer'])[3]")
-	//private WebElement categoryButton;
+	// @FindBy(xpath = "( //a[@class='small-box-footer'])[3]")
+	// private WebElement categoryButton;
 	@FindBy(xpath = "//a[@onclick='click_button(2)']")
 	private WebElement searchButton;
 	@FindBy(xpath = "//input[@class='form-control']")
 	private WebElement categorySearchField;
 	@FindBy(xpath = "//button[@name='Search']")
 	private WebElement saveSearchButton;
-	
+
 	@FindBy(xpath = "//a[@onclick='click_button(1)']")
 	private WebElement newButton;
 	@FindBy(xpath = "//input[@placeholder='Enter the Category']")
@@ -35,11 +35,11 @@ public class CategoryPage {
 	private WebElement imagePreview;
 	@FindBy(xpath = "//td[text()='Toys']")
 	private WebElement searchItem;
-	
-	/*public CategoryPage clickOnCategory() {
-		categoryButton.click();
-		return new CategoryPage(driver);
-	}*/
+
+	/*
+	 * public CategoryPage clickOnCategory() { categoryButton.click(); return new
+	 * CategoryPage(driver); }
+	 */
 
 	public CategoryPage clickOnSearchButton() {
 		searchButton.click();
@@ -56,10 +56,11 @@ public class CategoryPage {
 		return this;
 	}
 
-	public CategoryPage clickNewCategory() {//Add new 
+	public CategoryPage clickNewCategory() {// Add new
 		newButton.click();
 		return this;
 	}
+
 	public CategoryPage enterCategoryNameOnCategoryfield(String items) {
 		entersearchCategory.sendKeys(items);
 		return this;
@@ -73,6 +74,7 @@ public class CategoryPage {
 	public boolean imagePreviewOfCategory() {
 		return imagePreview.isEnabled();
 	}
+
 	public boolean isitemDisplayed() {
 		return searchItem.isDisplayed();
 	}

@@ -13,8 +13,8 @@ public class Manage_NewsPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	//@FindBy(xpath = "//p[text()='Manage News']")
-	//private WebElement manageNews;
+	// @FindBy(xpath = "//p[text()='Manage News']")
+	// private WebElement manageNews;
 	@FindBy(xpath = "//a[@onclick='click_button(1)']")
 	private WebElement clickNewButton;
 	@FindBy(xpath = "//textarea[@id='news']")
@@ -24,10 +24,10 @@ public class Manage_NewsPage {
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	private WebElement alertMessage;
 
-	/*public Manage_NewsPage clickManageNewsButton() {
-		manageNews.click();
-		return this;
-	}*/
+	/*
+	 * public Manage_NewsPage clickManageNewsButton() { manageNews.click(); return
+	 * this; }
+	 */
 
 	public Manage_NewsPage clickNewButton() {
 		clickNewButton.click();

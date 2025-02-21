@@ -29,18 +29,18 @@ public class LoginPage {
 	@FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
 	private WebElement alert;
 
-	public LoginPage enterUsernameOnUsernameField(String username1) {//chaining method
+	public LoginPage enterUsernameOnUsernameField(String username1) {// chaining method
 		username.sendKeys(username1);
-		return this;//indicated by current class
+		return this;// indicated by current class
 	}
 
-	public LoginPage enterPasswordOnPasswordField(String password1) {//chaining method
+	public LoginPage enterPasswordOnPasswordField(String password1) {// chaining method
 		password.sendKeys(password1);
 		return this;
 	}
 
-	public HomePage clickOnSigninButton() {//indicated by homepage //chaining method
-		
+	public HomePage clickOnSigninButton() {// indicated by homepage //chaining method
+
 		wait.waitUntilTheElementToBeClickable(driver, signinButton);
 		signinButton.click();
 		return new HomePage(driver);

@@ -26,32 +26,38 @@ public class HomePage {
 	private WebElement manageNews;
 	@FindBy(xpath = "//p[text()='Sub Category']")
 	private WebElement subCategory;
+
 	public Admin_UserPage clickOnAdminUsers() {
 		adminUsers.click();
 		return new Admin_UserPage(driver);
 	}
+
 	public CategoryPage clickOnCategory() {
 		categoryButton.click();
 		return new CategoryPage(driver);
 	}
+
 	public Manage_NewsPage clickManageNewsButton() {
 		manageNews.click();
 		return new Manage_NewsPage(driver);
 	}
+
 	public Sub_CategoryPage clickOnSubCategory() {
 		subCategory.click();
 		return new Sub_CategoryPage(driver);
 	}
-	public HomePage clickOnAdmin() {////chaining method
+
+	public HomePage clickOnAdmin() {//// chaining method
 		admin.click();
 		return this;
 	}
 
-	public HomePage clickOnLogout() {//after click logout buttion, no actions in loginpage so that we declare HomePage
+	public HomePage clickOnLogout() {// after click logout buttion, no actions in loginpage so that we declare
+										// HomePage
 		logout.click();
 		return this;
 	}
-	
+
 	public boolean isLogoutButtonDispayed() {
 		return logout.isDisplayed();
 	}

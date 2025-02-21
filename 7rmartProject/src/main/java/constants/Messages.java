@@ -1,7 +1,7 @@
 package constants;
 
 public class Messages {
-	public static final String VALIDCREDENTIALSERROR="unable to login with given credentials!";
+	public static final String VALIDCREDENTIALSERROR="unable to login with given credentials!";//assertion alert
 	public static final String INVALIDPASSWORDLOGIN="Successful login with invalid password!";
 	public static final String INVAIDUSERNAMELOGIN="Successful login with invalid username!";
 	public static final String INVALIDCREDENTIALSERROR="Successful login with invalid credentials!";

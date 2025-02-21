@@ -12,8 +12,8 @@
 		</classes>
 	</test> <!--
 	Test -->
-	<test thread-count="5" name="FirefoxTest">
-		<parameter name="browser" value="Firefox"></parameter>
+	<test thread-count="5" name="EdgeTest">
+		<parameter name="browser" value="Edge"></parameter>
 		<classes>
 			<class name="testScript.CategoryTest">
 				<methods>
@@ -22,8 +22,8 @@
 			</class>
 		</classes>
 	</test>
-	<test thread-count="5" name="EdgeTest">
-		<parameter name="browser" value="Edge"></parameter>
+	<test thread-count="5" name="FirefoxTest">
+		<parameter name="browser" value="Firefox"></parameter>
 		<classes>
 			<class name="testScript.CategoryTest">
 				<methods>

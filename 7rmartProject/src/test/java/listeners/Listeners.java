@@ -17,7 +17,7 @@ public class Listeners extends Base implements ITestListener {
 	ExtentReports extent = ExtentReportUtility.createExtentReports();
 	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
 
-	public void onTestStart(ITestResult result) {
+	public void onTestStart(ITestResult result) {////
 
 		ITestListener.super.onTestStart(result);
 		test = extent.createTest(result.getMethod().getMethodName());
@@ -88,6 +88,5 @@ public class Listeners extends Base implements ITestListener {
 		ITestListener.super.onFinish(context);
 		extent.flush();
 	}
-	
 
 }

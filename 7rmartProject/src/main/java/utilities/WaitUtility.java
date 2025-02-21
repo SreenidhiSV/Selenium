@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WaitUtility {
 	public static int IMPLICITEWAITDURATION = 10;
-	public static int EXPLICITEWAITDURATION = 5;
+	public static int EXPLICITEWAITDURATION = 5; // explicitewait and impicitewait
 	private WebDriver driver;
 
 	public void fluentWaitElements(WebDriver driver, WebElement element, String attribute, String attributeValue,

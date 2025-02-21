@@ -17,8 +17,8 @@ public class Sub_CategoryPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	//@FindBy(xpath = "//p[text()='Sub Category']")
-	//private WebElement subCategory;
+	// @FindBy(xpath = "//p[text()='Sub Category']")
+	// private WebElement subCategory;
 	@FindBy(xpath = "//a[@onclick='click_button(2)']")
 	private WebElement searchButton;
 	@FindBy(xpath = "//select[@class='form-control selectpicker']")
@@ -39,12 +39,12 @@ public class Sub_CategoryPage {
 	private WebElement chooseFile;
 	@FindBy(xpath = "//div[@id='imagePreview']")
 	private WebElement imagePreview;
-	
-	PageUtility page=new PageUtility();
-	
-	/*public void clickOnSubCategory() {
-		subCategory.click();
-	}*/
+
+	PageUtility page = new PageUtility();
+
+	/*
+	 * public void clickOnSubCategory() { subCategory.click(); }
+	 */
 
 	public Sub_CategoryPage clickOnSearchButton() {
 		searchButton.click();
@@ -53,11 +53,10 @@ public class Sub_CategoryPage {
 
 	public Sub_CategoryPage enterSubCategoryFromlist(String list1) {
 		page.selectDropDownWithVisibleText(selectSubCategory, list1);
-		//Select select = new Select(selectSubCategory);
-		//select.selectByVisibleText(list1);
+		// Select select = new Select(selectSubCategory);
+		// select.selectByVisibleText(list1);
 		return this;
 	}
-	
 
 	public Sub_CategoryPage enterSubCategoryField(String list2) {
 		enterSubCategory.sendKeys(list2);
@@ -70,17 +69,15 @@ public class Sub_CategoryPage {
 		return this;
 	}
 
-
 	public Sub_CategoryPage clickOnNew() {
 		newButton.click();
 		return this;
 	}
-	
 
 	public Sub_CategoryPage enterCategoryFromlist(String value) {
-		page.selectDropDownWithVisibleText(enterTheCategory,value);
-		//Select select = new Select(enterTheCategory);
-		//select.selectByVisibleText(list);
+		page.selectDropDownWithVisibleText(enterTheCategory, value);
+		// Select select = new Select(enterTheCategory);
+		// select.selectByVisibleText(list);
 		return this;
 	}
 
@@ -100,7 +97,6 @@ public class Sub_CategoryPage {
 		return imagePreview.isEnabled();
 	}
 
-	
 	public void selectSearchItem(String items) {
 		searchItem.sendKeys(items);
 	}

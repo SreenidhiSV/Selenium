@@ -10,7 +10,7 @@
 		<classes>
 			<class name="testScript.Admin_UserTest">
 				<methods>
-					<include name="adminCanSearchUsers"></include>
+					<include name="adminCanAddNewUsers"></include>
 				</methods>
 			</class>
 		</classes>

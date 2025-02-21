@@ -15,6 +15,7 @@ import utilities.ExcelUtility;
 public class Manage_NewsTest extends Base {
 	public HomePage homePage;
 	public Manage_NewsPage manageNewsPage;
+
 	@Test(description = "To Check Or Verify User Can Add News")
 	public void userCanAddNews() throws IOException {
 		String username1 = ExcelUtility.getStringData(1, 0, "LoginPage");
@@ -23,15 +24,16 @@ public class Manage_NewsTest extends Base {
 		LoginPage login = new LoginPage(driver);
 		login.enterUsernameOnUsernameField(username1);
 		login.enterPasswordOnPasswordField(password1);
-		homePage=login.clickOnSigninButton();
-		manageNewsPage=homePage.clickManageNewsButton().clickNewButton().enterNewsOnEnterNewsField(news1).saveNews();
-		/*Manage_NewsPage news = new Manage_NewsPage(driver);
-		news.clickManageNewsButton();
-		news.clickNewButton();
-		news.enterNewsOnEnterNewsField(news1);
-		news.saveNews();*/
+		homePage = login.clickOnSigninButton();
+		manageNewsPage = homePage.clickManageNewsButton();
+		manageNewsPage.clickNewButton().enterNewsOnEnterNewsField(news1).saveNews();
+		/*
+		 * Manage_NewsPage news = new Manage_NewsPage(driver);
+		 * news.clickManageNewsButton(); news.clickNewButton();
+		 * news.enterNewsOnEnterNewsField(news1); news.saveNews();
+		 */
 		boolean alertDisplayed = manageNewsPage.isAlertDisplayed();
-		Assert.assertTrue(alertDisplayed,Messages.ERRORNEWNEWSADDING);
+		Assert.assertTrue(alertDisplayed, Messages.ERRORNEWNEWSADDING);
 
 	}
 

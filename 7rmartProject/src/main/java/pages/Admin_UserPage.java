@@ -20,8 +20,8 @@ public class Admin_UserPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	//@FindBy(xpath = "//i[@class='nav-icon fas fa-users']")
-	//private WebElement adminUsers;
+	// @FindBy(xpath = "//i[@class='nav-icon fas fa-users']")
+	// private WebElement adminUsers;
 	@FindBy(xpath = "//p[text()='Manage Users']")
 	private WebElement clickManageUsers;
 	@FindBy(xpath = "//a[@onclick='click_button(1)']")
@@ -36,7 +36,7 @@ public class Admin_UserPage {
 	private WebElement saveButton;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	private WebElement alertMessage;
-	
+
 	@FindBy(xpath = "//a[@onclick='click_button(2)']")
 	private WebElement searchButton;
 	@FindBy(xpath = "//input[@id='un']")
@@ -45,12 +45,12 @@ public class Admin_UserPage {
 	private WebElement searchUserType;
 	@FindBy(xpath = "//button[@name='Search']")
 	private WebElement saveSearchButton;
-	
+
 	PageUtility page = new PageUtility();
 
-	//public void clickOnAdminUsers() {////move to homepage//by chaining method
-	//	adminUsers.click();
-	//}
+	// public void clickOnAdminUsers() {////move to homepage//by chaining method
+	// adminUsers.click();
+	// }
 
 	public Admin_UserPage manageUsers() {
 		clickManageUsers.click();
@@ -74,16 +74,16 @@ public class Admin_UserPage {
 
 	public Admin_UserPage searchUserType(String usertype) {
 		page.selectDropDownWithVisibleText(searchUserType, usertype);
-		return this;					// Select select = new Select(searchUserType);
-										// select.selectByValue(usertype);
-		}
+		return this; // Select select = new Select(searchUserType);
+						// select.selectByValue(usertype);
+	}
 
 	public Admin_UserPage clickOnSaveButton() {
 		saveButton.click();
 		return this;
 	}
-	
-	public Admin_UserPage clickOnSearchButton() {////search
+
+	public Admin_UserPage clickOnSearchButton() {// search
 		searchButton.click();
 		return this;
 	}
@@ -92,12 +92,12 @@ public class Admin_UserPage {
 		searchUsernameField.sendKeys(username2);
 		return this;
 	}
+
 	public Admin_UserPage selectUserType(String usertype) {
 		page.selectDropDownWithVisibleText(chooseUsertype, usertype);
-		return this;					// Select select = new Select(searchUserType);
-										// select.selectByValue(usertype);
-		}
-	
+		return this; // Select select = new Select(searchUserType);
+						// select.selectByValue(usertype);
+	}
 
 	public Admin_UserPage clickOnSearchValue() {
 		saveSearchButton.click();
