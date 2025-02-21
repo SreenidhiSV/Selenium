@@ -4,9 +4,9 @@
 	<test thread-count="5" name="ChromeTest">
 		<parameter name="browser" value="Chrome"></parameter>
 		<classes>
-			<class name="testScript.LoginTest">
+			<class name="testScript.CategoryTest">
 				<methods>
-					<include name="userLoginWithValidUsernameAndValidPassword"></include>
+					<include name="userCanSearchcategoryFromCategoryList"></include>
 				</methods>
 			</class>
 		</classes>
@@ -15,9 +15,9 @@
 	<test thread-count="5" name="FirefoxTest">
 		<parameter name="browser" value="Firefox"></parameter>
 		<classes>
-			<class name="testScript.LoginTest">
+			<class name="testScript.CategoryTest">
 				<methods>
-					<include name="userLoginWithValidUsernameAndValidPassword"></include>
+					<include name="userCanSearchcategoryFromCategoryList"></include>
 				</methods>
 			</class>
 		</classes>
@@ -25,9 +25,9 @@
 	<test thread-count="5" name="EdgeTest">
 		<parameter name="browser" value="Edge"></parameter>
 		<classes>
-			<class name="testScript.LoginTest">
+			<class name="testScript.CategoryTest">
 				<methods>
-					<include name="userLoginWithValidUsernameAndValidPassword"></include>
+					<include name="userCanSearchcategoryFromCategoryList"></include>
 				</methods>
 			</class>
 		</classes>

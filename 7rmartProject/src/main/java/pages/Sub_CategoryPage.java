@@ -6,7 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-import net.bytebuddy.asm.Advice.This;
+import constants.Constants;
+import utilities.PageUtility;
 
 public class Sub_CategoryPage {
 	public WebDriver driver;
@@ -14,79 +15,97 @@ public class Sub_CategoryPage {
 	public Sub_CategoryPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
-
 	}
 
-	@FindBy(xpath = "//p[text()='Sub Category']")
-	private WebElement SubCategory;
-	@FindBy(xpath = "//a[@onclick='click_button(1)']")
-	private WebElement NewButton;
-	@FindBy(xpath = "//select[@id='cat_id']")
-	private WebElement selectCategory;
-	@FindBy(xpath = "//input[@class='form-control']")
-	private WebElement enterCategory;
-	@FindBy(xpath = "//input[@id='main_img']")
-	private WebElement ChooseFile;
-	@FindBy(xpath = "//button[text()='Save']")
-	private WebElement saveButton;
-	
-	@FindBy(xpath = "//a[@class='btn btn-rounded btn-primary']")
+	//@FindBy(xpath = "//p[text()='Sub Category']")
+	//private WebElement subCategory;
+	@FindBy(xpath = "//a[@onclick='click_button(2)']")
 	private WebElement searchButton;
-	@FindBy(xpath = "//select[@id='un']")
-	private WebElement selectCategory1;
+	@FindBy(xpath = "//select[@class='form-control selectpicker']")
+	private WebElement selectSubCategory;
 	@FindBy(xpath = "//input[@placeholder='Sub Category']")
-	private WebElement enterSubcategory;
+	private WebElement enterSubCategory;
 	@FindBy(xpath = "//button[@name='Search']")
-	private WebElement saveSearchButton;
-	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
-	private WebElement message;
+	private WebElement search;
+	@FindBy(xpath = "//td[text()='Toys']")
+	private WebElement searchItem;
+	@FindBy(xpath = "//a[@onclick='click_button(1)']")
+	private WebElement newButton;
+	@FindBy(xpath = "//select[@name='cat_id']")
+	private WebElement enterTheCategory;
+	@FindBy(xpath = "//input[@type='text']")
+	private WebElement subcategoryField;
+	@FindBy(xpath = "//input[@type='file']")
+	private WebElement chooseFile;
+	@FindBy(xpath = "//div[@id='imagePreview']")
+	private WebElement imagePreview;
+	
+	PageUtility page=new PageUtility();
+	
+	/*public void clickOnSubCategory() {
+		subCategory.click();
+	}*/
 
-	public void clickOnSubCategory() {
-		SubCategory.click();
+	public Sub_CategoryPage clickOnSearchButton() {
+		searchButton.click();
+		return this;
 	}
 
-	public void clickOnNewButton() {
-		NewButton.click();
+	public Sub_CategoryPage enterSubCategoryFromlist(String list1) {
+		page.selectDropDownWithVisibleText(selectSubCategory, list1);
+		//Select select = new Select(selectSubCategory);
+		//select.selectByVisibleText(list1);
+		return this;
+	}
+	
+
+	public Sub_CategoryPage enterSubCategoryField(String list2) {
+		enterSubCategory.sendKeys(list2);
+		return this;
+
 	}
 
-	public void clickOnSelectCategoryFromList() {
-		Select select = new Select(selectCategory);
-		select.selectByVisibleText("Toys");
+	public Sub_CategoryPage searchSubmit() {
+		search.click();
+		return this;
 	}
 
-	public void enterTheSubCategory() {
-		enterCategory.sendKeys("unicone222");
+
+	public Sub_CategoryPage clickOnNew() {
+		newButton.click();
+		return this;
+	}
+	
+
+	public Sub_CategoryPage enterCategoryFromlist(String value) {
+		page.selectDropDownWithVisibleText(enterTheCategory,value);
+		//Select select = new Select(enterTheCategory);
+		//select.selectByVisibleText(list);
+		return this;
 	}
 
-	public void chooseFile() {
-		String path = System.getProperty("user.dir");
-		ChooseFile.sendKeys(path + "\\src\\test\\resources\\toyyy.jpg");
+	public Sub_CategoryPage enterTheSubCategoryField(String value1) {
+		subcategoryField.sendKeys(value1);
+		return this;
+	}
+
+	public Sub_CategoryPage toChooseFile() {
+
+		chooseFile.sendKeys(Constants.IMAGEFILE1);
+		return this;
+
+	}
+
+	public boolean imagePreviewOfCategory() {
+		return imagePreview.isEnabled();
 	}
 
 	
-	 public void clickOnSaveButton() {
-		 saveButton.click(); 
-		 }
-	 
-	public void clickOnSearch() {
-		searchButton.click();
+	public void selectSearchItem(String items) {
+		searchItem.sendKeys(items);
 	}
 
-	public void clickOnSelectCategoriesFromList() {
-		Select select = new Select(selectCategory1);
-		select.selectByVisibleText("Toys");
+	public boolean isitemDisplayed() {
+		return selectSubCategory.isDisplayed();
 	}
-
-	public void clickOnSubCategoryField() {
-		enterSubcategory.sendKeys("Bunny");
-	}
-
-	public void clickOnSearchButton() {
-		saveSearchButton.click();
-	}
-
-	public boolean isMessageDisplayed() {
-		return message.isDisplayed();
-	}
-
 }

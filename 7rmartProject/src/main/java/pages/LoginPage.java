@@ -5,9 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.WaitUtility;
+
 //add webElement and actions
 public class LoginPage {
 	public WebDriver driver;
+	WaitUtility wait = new WaitUtility();
 
 	public LoginPage(WebDriver driver) {// declare locally and globally
 		this.driver = driver;
@@ -26,16 +29,21 @@ public class LoginPage {
 	@FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
 	private WebElement alert;
 
-	public void enterUsernameOnUsernameField(String username1) {
+	public LoginPage enterUsernameOnUsernameField(String username1) {//chaining method
 		username.sendKeys(username1);
+		return this;//indicated by current class
 	}
 
-	public void enterPasswordOnPasswordField(String password1) {
+	public LoginPage enterPasswordOnPasswordField(String password1) {//chaining method
 		password.sendKeys(password1);
+		return this;
 	}
 
-	public void clickOnSigninButton() {
+	public HomePage clickOnSigninButton() {//indicated by homepage //chaining method
+		
+		wait.waitUntilTheElementToBeClickable(driver, signinButton);
 		signinButton.click();
+		return new HomePage(driver);
 	}
 
 	public boolean isDashboardDisplayed() {

@@ -6,9 +6,9 @@
     <classes>
       <class name="testScript.Sub_CategoryTest">
         <methods>
+          <include name="userCanSearchSubCategoryfromSearchList"/>
           <include name="initializeBrowser"/>
           <include name="driverCloseAndQuit"/>
-          <include name="UserCanEntervalidSubCategoryInformation"/>
         </methods>
       </class> <!-- testScript.Sub_CategoryTest -->
     </classes>
@@ -18,9 +18,9 @@
     <classes>
       <class name="testScript.Sub_CategoryTest">
         <methods>
+          <include name="userCanSearchSubCategoryfromSearchList"/>
           <include name="initializeBrowser"/>
           <include name="driverCloseAndQuit"/>
-          <include name="UserCanEntervalidSubCategoryInformation"/>
         </methods>
       </class> <!-- testScript.Sub_CategoryTest -->
     </classes>
@@ -30,9 +30,9 @@
     <classes>
       <class name="testScript.Sub_CategoryTest">
         <methods>
+          <include name="userCanSearchSubCategoryfromSearchList"/>
           <include name="initializeBrowser"/>
           <include name="driverCloseAndQuit"/>
-          <include name="UserCanEntervalidSubCategoryInformation"/>
         </methods>
       </class> <!-- testScript.Sub_CategoryTest -->
     </classes>

@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Grouping]" guice-stage="DEVELOPMENT">
-  <parameter name="browser" value="Chrome"/>
-  <test thread-count="5" name="Test(failed)">
-    <groups>
-      <run>
-        <include name="smoke"/>
-      </run>
-    </groups>
+<suite thread-count="2" parallel="tests" name="Failed suite [Parallel Testing]" guice-stage="DEVELOPMENT">
+  <test thread-count="2" parallel="tests" name="Test2(failed)">
+    <parameter name="browser" value="Chrome"/>
     <classes>
       <class name="testScript.LoginTest">
         <methods>
           <include name="userLoginWithInvalidUsernameAndInvalidPassword"/>
-          <include name="userLoginWithValidUsernameAndValidPassword"/>
+          <include name="initializeBrowser"/>
+          <include name="driverCloseAndQuit"/>
         </methods>
       </class> <!-- testScript.LoginTest -->
     </classes>
-  </test> <!-- Test(failed) -->
-</suite> <!-- Failed suite [Grouping] -->
+  </test> <!-- Test2(failed) -->
+</suite> <!-- Failed suite [Parallel Testing] -->

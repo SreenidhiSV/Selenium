@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import constants.Constants;
+
 public class CategoryPage {
 	public WebDriver driver;
 
@@ -14,52 +16,65 @@ public class CategoryPage {
 
 	}
 
-	@FindBy(xpath = "//p[text()='Category']")
-	private WebElement categoryButton;
+	//@FindBy(xpath = "( //a[@class='small-box-footer'])[3]")
+	//private WebElement categoryButton;
+	@FindBy(xpath = "//a[@onclick='click_button(2)']")
+	private WebElement searchButton;
+	@FindBy(xpath = "//input[@class='form-control']")
+	private WebElement categorySearchField;
+	@FindBy(xpath = "//button[@name='Search']")
+	private WebElement saveSearchButton;
+	
 	@FindBy(xpath = "//a[@onclick='click_button(1)']")
 	private WebElement newButton;
 	@FindBy(xpath = "//input[@placeholder='Enter the Category']")
 	private WebElement entersearchCategory;
-	@FindBy(xpath="//input[@id='main_img']")
+	@FindBy(xpath = "//input[@id='main_img']")
 	private WebElement chooseFile;
-	@FindBy(xpath="//input[@name='top-menu']")
-	private WebElement showOnTopMenuYes;
-	@FindBy(xpath="//input[@value='yes' and @name='show_home']")
-	private WebElement showOnLeftMenuYes;
-	@FindBy(xpath = "//a[@class='btn tn-rounded btn-warning']") private WebElement categoryResetButton;
-	@FindBy(xpath = "//a[@onClick='click_button(2)']")private WebElement clickSearch;
-	@FindBy(xpath = "//input[@placeholder='Category']")private WebElement clickSearchButton;
+	@FindBy(id = "imagePreview")
+	private WebElement imagePreview;
+	@FindBy(xpath = "//td[text()='Toys']")
+	private WebElement searchItem;
 	
-	@FindBy(id="imagePreview")private WebElement imagePreview;
-
-	public void clickOnCategory() {
+	/*public CategoryPage clickOnCategory() {
 		categoryButton.click();
+		return new CategoryPage(driver);
+	}*/
+
+	public CategoryPage clickOnSearchButton() {
+		searchButton.click();
+		return this;
 	}
 
-	public void clickNewCategory() {
+	public CategoryPage clickOnSearchField(String items) {
+		categorySearchField.sendKeys(items);
+		return this;
+	}
+
+	public CategoryPage clickOnSaveSearchButton() {
+		saveSearchButton.click();
+		return this;
+	}
+
+	public CategoryPage clickNewCategory() {//Add new 
 		newButton.click();
+		return this;
+	}
+	public CategoryPage enterCategoryNameOnCategoryfield(String items) {
+		entersearchCategory.sendKeys(items);
+		return this;
 	}
 
-	public void enterCategoryNameOnCategoryfield() {
-		entersearchCategory.sendKeys("iphone");
+	public CategoryPage toChooseFile() {
+		chooseFile.sendKeys(Constants.IMAGEFILE);
+		return this;
 	}
-	public boolean toChooseFile() {
-		String projectPath = System.getProperty("user.dir");
-		chooseFile.sendKeys(projectPath + "\\src\\test\\resources\\toyyy.jpg");
-		return false;
-	}
-	public void clickOnResetButton() {
-		categoryResetButton.click();
-	}
-	public void categorysearch() {
-		clickSearch.click();
-		entersearchCategory.sendKeys("Toys");
-		clickSearchButton.click();
-		
-	}
+
 	public boolean imagePreviewOfCategory() {
 		return imagePreview.isEnabled();
 	}
-	
+	public boolean isitemDisplayed() {
+		return searchItem.isDisplayed();
+	}
 
 }

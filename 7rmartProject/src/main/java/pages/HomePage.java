@@ -17,36 +17,43 @@ public class HomePage {
 	private WebElement admin;
 	@FindBy(xpath = "//i[@class='ace-icon fa fa-power-off']")
 	private WebElement logout;
-	@FindBy(xpath = "//a[text()='Home']")
-	private WebElement home;
-	@FindBy(xpath = "//a[@class='nav-link']")
-	private WebElement rR1;
-	@FindBy(xpath = "//span[text()='7rmart supermarket']")
-	private WebElement title;
-	@FindBy(xpath = "//p[text()='Dashboard']")
-	private WebElement dashboard;
 
-	public void clickOnAdmin() {
+	@FindBy(xpath = "//i[@class='nav-icon fas fa-users']")
+	private WebElement adminUsers;
+	@FindBy(xpath = "( //a[@class='small-box-footer'])[3]")
+	private WebElement categoryButton;
+	@FindBy(xpath = "//p[text()='Manage News']")
+	private WebElement manageNews;
+	@FindBy(xpath = "//p[text()='Sub Category']")
+	private WebElement subCategory;
+	public Admin_UserPage clickOnAdminUsers() {
+		adminUsers.click();
+		return new Admin_UserPage(driver);
+	}
+	public CategoryPage clickOnCategory() {
+		categoryButton.click();
+		return new CategoryPage(driver);
+	}
+	public Manage_NewsPage clickManageNewsButton() {
+		manageNews.click();
+		return new Manage_NewsPage(driver);
+	}
+	public Sub_CategoryPage clickOnSubCategory() {
+		subCategory.click();
+		return new Sub_CategoryPage(driver);
+	}
+	public HomePage clickOnAdmin() {////chaining method
 		admin.click();
+		return this;
 	}
 
-	public void clickOnLogout() {
+	public HomePage clickOnLogout() {//after click logout buttion, no actions in loginpage so that we declare HomePage
 		logout.click();
+		return this;
 	}
-
-	public void clickOnHome() {
-		home.click();
-	}
-
+	
 	public boolean isLogoutButtonDispayed() {
 		return logout.isDisplayed();
 	}
 
-	public boolean isRR1Displayed() {
-		return rR1.isDisplayed();
-	}
-
-	public boolean clickOnDashBoard() {
-		return dashboard.isDisplayed();
-	}
 }
